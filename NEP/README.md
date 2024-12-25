@@ -1,0 +1,2 @@
+- In file `element_mapping_nep.py`, one can use it to generate [LAMMPS](https://github.com/lammps/lammps) structure file(xxx.data file) for [NEP_CPU](https://github.com/brucefan1983/NEP_CPU) potential
+- In file `生成适用于NEP-LAMMPS的data文件.md`, the author presents the background of file `element_mapping_nep.py` and other possible methods.
