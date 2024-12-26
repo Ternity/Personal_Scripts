@@ -18,12 +18,12 @@ start_time = time.time()
 #===========================Before calculations notes===========================
 '''  Testing has shown that when FarthestPointSample was visualized, PCA performanced better than t-SNE; while Clusteing(DBScan),  t-SNE was better than PCA.  '''
 #===========================Get global descriptor and energy for each configuration===========================
-old_train_data = read('/home/yuqinghan/Project/DAC/NEP-train/activate-learning/iter02/train.xyz', index=":", format="extxyz") #  if not existl, change descriptors_old_cala to []
-# trajs = read('/home/yuqinghan/Project/DAC/NEP-infer/LAMMPS/log_out/traj/dump_stage1.xyz', index=":", format="lammps-dump-text", specorder=["C","N","Fe","O","H","Na","Cl"])
-trajs = read('/home/yuqinghan/Project/DAC/NEP-train/activate-learning/iter03/system_contain_Fe2.xyz',index=':',format='extxyz')
-nep_model_path = '/home/yuqinghan/Project/DAC/NEP-train/activate-learning/iter02/nep.txt'
-# npy_save_path = '/home/yuqinghan/Project/DAC/data/activate-learning/iter03/selection'
-npy_save_path = '/home/yuqinghan/Project/DAC/NEP-train/activate-learning/iter03'
+old_train_data = read('$HOME/Project/DAC/NEP-train/activate-learning/iter02/train.xyz', index=":", format="extxyz") #  if not existl, change descriptors_old_cala to []
+# trajs = read('$HOME/Project/DAC/NEP-infer/LAMMPS/log_out/traj/dump_stage1.xyz', index=":", format="lammps-dump-text", specorder=["C","N","Fe","O","H","Na","Cl"])
+trajs = read('$HOME/Project/DAC/NEP-train/activate-learning/iter03/system_contain_Fe2.xyz',index=':',format='extxyz')
+nep_model_path = '$HOME/Project/DAC/NEP-train/activate-learning/iter02/nep.txt'
+# npy_save_path = '$HOME/Project/DAC/data/activate-learning/iter03/selection'
+npy_save_path = '$HOME/Project/DAC/NEP-train/activate-learning/iter03'
 
 def cal_nep_info(atoms, nep_model_path):
     descriptor = get_descriptors(atoms, nep_model_path)   # for Calorine
