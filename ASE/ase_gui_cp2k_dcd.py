@@ -31,7 +31,7 @@ ATOMIC_FORCES_RE = re.compile(
 )
 
 def parse_atomic_forces_list(output_file_path):
-    '''reference to Dr. Zhang Yongbin's cp2kdata package.'''
+    '''reference to Dr. Zhuang Yongbin's cp2kdata package.'''
     with open(output_file_path, 'r') as f:
         output_file = f.read()
 
