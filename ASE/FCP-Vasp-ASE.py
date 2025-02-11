@@ -1,3 +1,5 @@
+'''For more information, please see "https://github.com/hellozhaoming/FCP-vasp-ase" and remember site it.'''
+
 #from ase.calculators.FCPelectrochem import FCP
 from ase.calculators.vasp.vaspFCP import VaspFCP
 from ase.calculators.vasp import Vasp
