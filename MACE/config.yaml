@@ -1,0 +1,70 @@
+# MACE Training Configuration
+# Converted from command line arguments
+
+# Basic configuration
+name: "MACE-Omat-ft"
+train_file: "train.xyz"
+valid_fraction: 0.05
+E0s: "average"
+
+# fine tuning
+foundation_model: "./mace-omat-0-small.model" 
+multiheads_finetuning: False 
+
+# Model configuration
+  # model: "MACELES"
+  # les_arguments: "les_config.yaml"
+  # num_interactions: 2 # message passing layer
+  # num_channels: 128 # feature width
+  # max_L: 0 # l_amx, here Invariant not equi
+  # correlation: 3 # many body order, here 4 body
+  # r_max: 6.0 # cut off
+
+# Training parameters
+lr: 0.001
+# swa_lr: 0.0001
+energy_weight: 1.0
+forces_weight: 1.0
+# loss: "weighted"      
+# stress_weight: 0.1    # stress 损失的权重
+# compute_stress: true
+loss: virials         # universal/huber/stress/virials/forces_only/ef/energy_forces/l1l2energyforces/weighted
+virials_weight: 0.1
+
+# Data keys
+energy_key: "energy"
+forces_key: "forces"
+# stress_key: "stress"
+virials_key: "virial"
+
+# Batch configuration
+scaling: "no_scaling"   # dataset是否归一化 no_scaling/rms_forces_scaling/minimal
+batch_size: 8
+valid_batch_size: 8
+
+# Training schedule
+max_num_epochs: 50
+# start_swa: 10
+# scheduler_patience: 5 # when lr down
+patience: 20
+# eval_interval: 5
+
+# Training options
+ema: true
+ema_decay: 0.99
+amsgrad: true # better Adam
+# swa: true   # Stochastic Weight Averaging
+plot: true
+plot_frequency: 20
+error_table: "PerAtomMAE"
+plot_interaction_e: true
+
+# System configuration
+default_dtype: "float64"
+device: cuda
+# distributed: true
+num_workers: 8  # data process use multi cores
+seed: 3
+restart_latest: true
+save_cpu: true
+enable_cueq: true
